@@ -1,6 +1,8 @@
 {
   "block.supernova.supernova_block": "Supernova Block",
   "block.supernova.supernova_catalyst": "Supernova Catalyst",
+  "block.supernova.supernova_source": "Supernova Source",
   "item.supernova.nova_apple": "Nova Apple",
-  "itemGroup.supernova": "Supernova Core"
+  "itemGroup.supernova": "Supernova Core",
+  "itemGroup.supernova_blocks": "Supernova Blocks"
 }
