@@ -1,4 +1,4 @@
-package com.veis.supernova.common.blocks;
+package com.veis.supernova.common.block;
 
 import com.mojang.logging.LogUtils;
 import com.veis.supernova.common.Supernova;
@@ -37,9 +37,9 @@ public class Basic {
     //supernova source item
     public static final DeferredItem<BlockItem> SUPERNOVA_SOURCE_ITEM = ITEMS.registerSimpleBlockItem("supernova_source", SUPERNOVA_SOURCE);
     //supernova catalyst
-    public static final DeferredBlock<Block> SUPERNOVA_CATALYST = BLOCKS.registerSimpleBlock("supernova_catalyst", BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY));
+    //public static final DeferredBlock<Block> SUPERNOVA_CATALYST = BLOCKS.registerSimpleBlock("supernova_catalyst", BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY));
     //supernova catalyst item
-    public static final DeferredItem<BlockItem> SUPERNOVA_CATALYST_ITEM = ITEMS.registerSimpleBlockItem("supernova_catalyst", SUPERNOVA_CATALYST);
+    //public static final DeferredItem<BlockItem> SUPERNOVA_CATALYST_ITEM = ITEMS.registerSimpleBlockItem("supernova_catalyst", SUPERNOVA_CATALYST);
 
     //creative tab for blocks
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> SUPERNOVA_BLOCKS = CREATIVE_MODE_TABS.register("supernova_blocks", () -> CreativeModeTab.builder()

@@ -1,6 +1,8 @@
 package com.veis.supernova.common;
 
-import com.veis.supernova.common.blocks.DeferredTest;
+import com.veis.supernova.common.block.Basic;
+import com.veis.supernova.common.block.ModBlocks;
+import com.veis.supernova.common.item.ModItems;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -51,22 +53,22 @@ public class Supernova
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
 
     // Creates a new Block with the id "examplemod:example_block", combining the namespace and path
-    public static final DeferredBlock<Block> SUPERNOVA_BLOCK = BLOCKS.registerSimpleBlock("supernova_block", BlockBehaviour.Properties.of().mapColor(MapColor.STONE));
+    //public static final DeferredBlock<Block> SUPERNOVA_BLOCK = BLOCKS.registerSimpleBlock("supernova_block", BlockBehaviour.Properties.of().mapColor(MapColor.STONE));
     // Creates a new BlockItem with the id "examplemod:example_block", combining the namespace and path
-    public static final DeferredItem<BlockItem> SUPERNOVA_BLOCK_ITEM = ITEMS.registerSimpleBlockItem("supernova_block", SUPERNOVA_BLOCK);
+    //public static final DeferredItem<BlockItem> SUPERNOVA_BLOCK_ITEM = ITEMS.registerSimpleBlockItem("supernova_block", SUPERNOVA_BLOCK);
 
     // Creates a new food item with the id "examplemod:example_id", nutrition 1 and saturation 2
-    public static final DeferredItem<Item> NOVA_APPLE = ITEMS.registerSimpleItem("nova_apple", new Item.Properties().food(new FoodProperties.Builder()
-            .alwaysEdible().nutrition(1).saturationModifier(2f).build()));
+    //public static final DeferredItem<Item> NOVA_APPLE = ITEMS.registerSimpleItem("nova_apple", new Item.Properties().food(new FoodProperties.Builder()
+    //        .alwaysEdible().nutrition(1).saturationModifier(2f).build()));
 
     // Creates a creative tab with the id "examplemod:example_tab" for the example item, that is placed after the combat tab
-    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> SUPERNOVA_TAB = CREATIVE_MODE_TABS.register("supernova_tab", () -> CreativeModeTab.builder()
-            .title(Component.translatable("itemGroup.supernova")) //The language key for the title of your CreativeModeTab
-            .withTabsBefore(CreativeModeTabs.COMBAT)
-            .icon(() -> NOVA_APPLE.get().getDefaultInstance())
-            .displayItems((parameters, output) -> {
-                output.accept(NOVA_APPLE.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
-            }).build());
+    //public static final DeferredHolder<CreativeModeTab, CreativeModeTab> SUPERNOVA_TAB = CREATIVE_MODE_TABS.register("supernova_tab", () -> CreativeModeTab.builder()
+    //        .title(Component.translatable("itemGroup.supernova")) //The language key for the title of your CreativeModeTab
+    //        .withTabsBefore(CreativeModeTabs.COMBAT)
+    //        .icon(() -> NOVA_APPLE.get().getDefaultInstance())
+    //        .displayItems((parameters, output) -> {
+    //            output.accept(NOVA_APPLE.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
+    //        }).build());
 
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
@@ -77,11 +79,12 @@ public class Supernova
 
         // Register the Deferred Register to the mod event bus so blocks get registered
         BLOCKS.register(modEventBus);
-        // Register the Deferred Register to the mod event bus so items get registered
-        ITEMS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so tabs get registered
         CREATIVE_MODE_TABS.register(modEventBus);
-        DeferredTest.register(modEventBus);
+
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
+
 
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
@@ -111,8 +114,14 @@ public class Supernova
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
-            event.accept(SUPERNOVA_BLOCK_ITEM);
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.SUPERNOVA_INGOT);
+            event.accept(ModItems.UNCHARGED_NOVA_INGOT);
+        }
+        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+            event.accept(ModBlocks.SUPERNOVA_CATALYST);
+            event.accept(ModBlocks.SUPERNOVA_BLOCK);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
