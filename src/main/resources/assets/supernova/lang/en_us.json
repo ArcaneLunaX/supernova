@@ -1,10 +1,17 @@
 {
+  "comment1": "blocks",
   "block.supernova.supernova_block": "Supernova Block",
   "block.supernova.supernova_catalyst": "Supernova Catalyst",
   "block.supernova.supernova_source": "Supernova Source",
+
+  "comment2": "items",
   "item.supernova.nova_apple": "Nova Apple",
   "item.supernova.supernova_ingot": "Supernova Ingot",
   "item.supernova.uncharged_nova_ingot": "Nova Ingot",
-  "itemGroup.supernova": "Supernova Core",
-  "itemGroup.supernova_blocks": "Supernova Blocks"
+  "item.supernova.chisel": "Chisel",
+
+
+  "comment3": "creativetabs",
+  "creativetab.supernova.supernova_items": "Supernova Items",
+  "creativetab.supernova.supernova_blocks": "Supernova Blocks"
 }

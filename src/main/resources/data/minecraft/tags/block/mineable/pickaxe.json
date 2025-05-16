@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "supernova:supernova_block",
+    "supernova:supernova_source",
+    "supernova:supernova_catalyst"
+  ]
+}
