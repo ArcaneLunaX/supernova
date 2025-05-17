@@ -1,13 +1,15 @@
 {
   "comment1": "blocks",
   "block.supernova.supernova_block": "Supernova Block",
+  "block.supernova.nova_block": "Nova Block",
   "block.supernova.supernova_catalyst": "Supernova Catalyst",
   "block.supernova.supernova_source": "Supernova Source",
 
   "comment2": "items",
   "item.supernova.nova_apple": "Nova Apple",
   "item.supernova.supernova_ingot": "Supernova Ingot",
-  "item.supernova.uncharged_nova_ingot": "Nova Ingot",
+  "item.supernova.nova_ingot": "Nova Ingot",
+  "item.supernova.starseer_eye": "Starseer Eye",
   "item.supernova.chisel": "Chisel",
 
 

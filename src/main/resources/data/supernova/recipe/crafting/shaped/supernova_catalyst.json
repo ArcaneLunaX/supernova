@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "N": {
+      "item": "supernova:nova_block"
+    },
+    "O": {
+      "item": "minecraft:obsidian"
+    },
+    "S": {
+      "item": "supernova:starseer_eye"
+    }
+  },
+  "pattern": [
+    "ONO",
+    "NSN",
+    "ONO"
+  ],
+  "result": {
+    "id": "supernova:supernova_catalyst",
+    "count": 1
+  }
+}

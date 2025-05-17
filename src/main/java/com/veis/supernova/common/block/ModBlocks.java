@@ -24,9 +24,13 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.of()
                     .strength(4f).requiresCorrectToolForDrops().sound(SoundType.NETHERITE_BLOCK)));
 
+    public static final DeferredBlock<Block> NOVA_BLOCK = registerBlock("nova_block",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(2f).requiresCorrectToolForDrops().sound(SoundType.NETHERITE_BLOCK)));
+
     public static final DeferredBlock<Block> SUPERNOVA_CATALYST = registerBlock("supernova_catalyst",
             () -> new DropExperienceBlock(UniformInt.of(2, 4),
-            BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops().sound(SoundType.ANCIENT_DEBRIS)));
+            BlockBehaviour.Properties.of().strength(3f).requiresCorrectToolForDrops().sound(SoundType.ANCIENT_DEBRIS)));
 
     public static final DeferredBlock<Block> SUPERNOVA_SOURCE = registerBlock("supernova_source",
             () -> new Block(BlockBehaviour.Properties.of().strength(1f).lightLevel(state -> 15).sound(SoundType.GLASS)));

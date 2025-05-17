@@ -6,7 +6,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -22,8 +21,9 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.supernova.supernova_items"))
                     .displayItems((parameters, output) -> {
                         output.accept(ModItems.SUPERNOVA_INGOT);
-                        output.accept(ModItems.UNCHARGED_NOVA_INGOT);
+                        output.accept(ModItems.NOVA_INGOT);
                         output.accept(ModItems.CHISEL);
+                        output.accept(ModItems.STARSEER_EYE);
                     }).build());
     public static final Supplier<CreativeModeTab> SUPERNOVA_BLOCKS_TAB = CREATIVE_MODE_TAB.register("supernova_blocks_tab",
             () -> CreativeModeTab.builder()

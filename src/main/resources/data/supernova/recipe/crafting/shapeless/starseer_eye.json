@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {"item": "minecraft:ender_eye"},
+    {"item": "minecraft:flint_and_steel"},
+    {"item": "minecraft:snowball"},
+    {"item": "minecraft:end_stone"},
+    {"item": "minecraft:netherrack"},
+    {"item": "minecraft:stone"}
+  ],
+  "result": {
+    "id": "supernova:starseer_eye",
+    "count": 1
+  }
+}

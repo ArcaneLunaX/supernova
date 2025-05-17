@@ -27,4 +27,4 @@ To do:
 
 -Rename chisel and method to fit vibe more
 
-
+-make supernova block explode if charged
