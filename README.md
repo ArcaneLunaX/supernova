@@ -1,30 +1,10 @@
-Supernova mod home.
-Features added:
 
--Nova and Supernova ingots (no recipes)
+# Supernova mod home!
 
--Supernova Block, Supernova Catalyst, Supernova Source
+This is the github for Supernova, my first attempt at modding from scratch. Current items are more endgame for the mod, but I hope to add earlier game content soon.
 
--Supernova block and ingot conversion recipe
+Feature list and to-do can be seen here: 
 
--Chisel
+https://docs.google.com/document/d/10_ibHjc6z6uGm7QND5Kd5KYfcvpWstRsS1y_Twwz2o4/edit?usp=sharing
 
--Supernova catalyst ascension using chisel and Supernova Source
-
--Nova Apple
-
-
-
-To do:
-
--Supernova source creation method
-
--Nova ingot recipe/ore/something
-
--Supernova catalyst recipe
-
--Nova block creation + recipe creation for block-ingot conversion
-
--Rename chisel and method to fit vibe more
-
--make supernova block explode if charged
+first actual release will be created when the mod has some actual functionality.

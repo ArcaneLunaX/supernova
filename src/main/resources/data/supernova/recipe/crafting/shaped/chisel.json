@@ -2,17 +2,16 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "S": {
-      "item": "supernova:nova_ingot"
-    }
+    "I": {"item": "minecraft:iron_ingot"},
+    "S": {"item": "minecraft:stick"}
   },
   "pattern": [
-    "SSS",
-    "SSS",
-    "SSS"
+    "  I",
+    " I ",
+    "S  "
   ],
   "result": {
-    "id": "supernova:nova_block",
+    "id": "supernova:chisel",
     "count": 1
   }
 }

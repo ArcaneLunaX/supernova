@@ -62,7 +62,7 @@ public class TransmuteItem extends Item {
         if(ASCENDANT_MAP.containsKey(clickedBlock)) {
             if(!level.isClientSide()) {
                 if(belowBlock == ModBlocks.SUPERNOVA_SOURCE.get() & aboveBlock == ModBlocks.SUPERNOVA_SOURCE.get()) {
-                    if(clickedBlock == ModBlocks.SUPERNOVA_CATALYST.get()) {
+                    if(clickedBlock == ModBlocks.SUPERNOVA_CATALYST.get() & context.getItemInHand().is(ModItems.STARSEER_EYE.asItem())) {
                         level.setBlockAndUpdate(context.getClickedPos(), ASCENDANT_MAP.get(clickedBlock).defaultBlockState());
                         level.setBlockAndUpdate(context.getClickedPos().below(), ASCENDANT_MAP.get(belowBlock).defaultBlockState());
                         level.setBlockAndUpdate(context.getClickedPos().above(), ASCENDANT_MAP.get(aboveBlock).defaultBlockState());
