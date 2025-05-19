@@ -1,4 +1,4 @@
-package com.veis.supernova.common.item.custom;
+package com.veis.supernova.item.custom;
 
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;

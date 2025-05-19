@@ -1,4 +1,4 @@
-package com.veis.supernova.common.item;
+package com.veis.supernova.item;
 
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;

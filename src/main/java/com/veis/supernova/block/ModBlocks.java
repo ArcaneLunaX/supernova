@@ -1,9 +1,9 @@
-package com.veis.supernova.common.block;
+package com.veis.supernova.block;
 
 
-import com.veis.supernova.common.Supernova;
-import com.veis.supernova.common.block.custom.AltarBlock;
-import com.veis.supernova.common.item.ModItems;
+import com.veis.supernova.Supernova;
+import com.veis.supernova.block.custom.AltarBlock;
+import com.veis.supernova.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;

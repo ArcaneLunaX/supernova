@@ -1,14 +1,13 @@
-package com.veis.supernova.common;
+package com.veis.supernova;
 
 import com.mojang.logging.LogUtils;
-import com.veis.supernova.common.block.ModBlocks;
-import com.veis.supernova.common.item.ModCreativeModeTabs;
-import com.veis.supernova.common.item.ModItems;
+import com.veis.supernova.block.ModBlocks;
+import com.veis.supernova.item.ModCreativeModeTabs;
+import com.veis.supernova.item.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
@@ -20,7 +19,6 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.slf4j.Logger;

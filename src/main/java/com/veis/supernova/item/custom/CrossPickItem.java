@@ -1,4 +1,4 @@
-package com.veis.supernova.common.item.custom;
+package com.veis.supernova.item.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionResult;
@@ -53,13 +53,13 @@ public class CrossPickItem extends Item {
         level.destroyBlock(clickedPos.below(), true);
         level.destroyBlock(clickedPos.below().north(), true);
         level.destroyBlock(clickedPos.below().north().east(), true);
-        level.destroyBlock(clickedPos.below().north().south(), true);
+        level.destroyBlock(clickedPos.below().north().west(), true);
         level.destroyBlock(clickedPos.below().east(), true);
         level.destroyBlock(clickedPos.below().south(), true);
         level.destroyBlock(clickedPos.below().south().east(), true);
         level.destroyBlock(clickedPos.below().south().west(), true);
         level.destroyBlock(clickedPos.below().west(), true);
 
-        return super.useOn(context);
+        return InteractionResult.SUCCESS;
     }
 }

@@ -1,15 +1,20 @@
-package com.veis.supernova.common.item;
+package com.veis.supernova.item;
 
-import com.veis.supernova.common.Supernova;
-import com.veis.supernova.common.item.custom.CrossPickItem;
-import com.veis.supernova.common.item.custom.FuelItem;
-import com.veis.supernova.common.item.custom.TransmuteItem;
-import net.minecraft.world.food.FoodProperties;
+import com.veis.supernova.Supernova;
+import com.veis.supernova.item.custom.CrossPickItem;
+import com.veis.supernova.item.custom.FuelItem;
+import com.veis.supernova.item.custom.TransmuteItem;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.TooltipFlag;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
+
+import java.util.List;
 
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Supernova.MODID);
@@ -27,7 +32,17 @@ public class ModItems {
 
 
     public static final DeferredItem<Item> STARSEER_EYE = ITEMS.register("starseer_eye",
-            () -> new TransmuteItem(new Item.Properties().durability(4).fireResistant().setNoRepair().rarity(Rarity.RARE)));
+            () -> new TransmuteItem(new Item.Properties().durability(300).fireResistant().setNoRepair().rarity(Rarity.RARE)){
+                @Override
+                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+                    if(!Screen.hasShiftDown()){
+                        tooltipComponents.add(Component.translatable("tooltip.supernova.transmute_object.hold_shift"));
+                    } else {
+                        tooltipComponents.add(Component.translatable("tooltip.supernova.transmute_object.shift_held_starseer"));
+                    }
+                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+                }
+            });
     public static final DeferredItem<Item> STARSEER_BREAKER = ITEMS.register("starseer_breaker",
             () -> new CrossPickItem(new Item.Properties().durability(4).fireResistant().setNoRepair().rarity(Rarity.RARE)));
 

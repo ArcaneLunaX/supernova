@@ -1,7 +1,7 @@
-package com.veis.supernova.common.item;
+package com.veis.supernova.item;
 
-import com.veis.supernova.common.Supernova;
-import com.veis.supernova.common.block.ModBlocks;
+import com.veis.supernova.Supernova;
+import com.veis.supernova.block.ModBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;

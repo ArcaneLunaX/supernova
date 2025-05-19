@@ -18,5 +18,11 @@
 
   "comment3": "creativetabs",
   "creativetab.supernova.supernova_items": "Supernova Items",
-  "creativetab.supernova.supernova_blocks": "Supernova Blocks"
+  "creativetab.supernova.supernova_blocks": "Supernova Blocks",
+
+  "comment4": "tooltips",
+  "tooltip.supernova.altar_block.tooltip": "§dAltar Block",
+  "tooltip.supernova.transmute_object.hold_shift": "§7Hold shift for more recharging information.",
+  "tooltip.supernova.transmute_object.shift_held_starseer": "§dThis item can be recharged using the Spacial Altar or by consuming Starseer Essence."
+
 }
