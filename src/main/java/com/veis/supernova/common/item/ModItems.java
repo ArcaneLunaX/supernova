@@ -1,6 +1,8 @@
 package com.veis.supernova.common.item;
 
 import com.veis.supernova.common.Supernova;
+import com.veis.supernova.common.item.custom.CrossPickItem;
+import com.veis.supernova.common.item.custom.FuelItem;
 import com.veis.supernova.common.item.custom.TransmuteItem;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
@@ -26,7 +28,13 @@ public class ModItems {
 
     public static final DeferredItem<Item> STARSEER_EYE = ITEMS.register("starseer_eye",
             () -> new TransmuteItem(new Item.Properties().durability(4).fireResistant().setNoRepair().rarity(Rarity.RARE)));
+    public static final DeferredItem<Item> STARSEER_BREAKER = ITEMS.register("starseer_breaker",
+            () -> new CrossPickItem(new Item.Properties().durability(4).fireResistant().setNoRepair().rarity(Rarity.RARE)));
 
+    public static final DeferredItem<Item> STELLAR_COAL = ITEMS.register("stellar_coal",
+            () -> new FuelItem(new Item.Properties(), 8000));
+    public static final DeferredItem<Item> STELLAR_CHARCOAL = ITEMS.register("stellar_charcoal",
+            () -> new Item(new Item.Properties()));
 
 
 

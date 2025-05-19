@@ -34,7 +34,7 @@ public class ModBlocks {
             BlockBehaviour.Properties.of().strength(3f).requiresCorrectToolForDrops().sound(SoundType.ANCIENT_DEBRIS)));
 
     public static final DeferredBlock<Block> STARSEER_ESSENCE = registerBlock("starseer_essence",
-            () -> new Block(BlockBehaviour.Properties.of().strength(1f).lightLevel(state -> 15).sound(SoundType.GLASS)));
+            () -> new AltarBlock(BlockBehaviour.Properties.of().strength(1f).lightLevel(state -> 15).sound(SoundType.GLASS)));
 
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {

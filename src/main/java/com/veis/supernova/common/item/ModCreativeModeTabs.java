@@ -25,6 +25,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.CHISEL);
                         output.accept(ModItems.STARSEER_EYE);
                         output.accept(ModItems.NOVA_APPLE);
+                        output.accept(ModItems.STELLAR_CHARCOAL);
+                        output.accept(ModItems.STELLAR_COAL);
                     }).build());
     public static final Supplier<CreativeModeTab> SUPERNOVA_BLOCKS_TAB = CREATIVE_MODE_TAB.register("supernova_blocks_tab",
             () -> CreativeModeTab.builder()
