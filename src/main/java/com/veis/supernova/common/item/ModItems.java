@@ -17,7 +17,7 @@ public class ModItems {
     public static final DeferredItem<Item> NOVA_INGOT = ITEMS.register("nova_ingot",
             () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final DeferredItem<Item> NOVA_APPLE = ITEMS.register("nova_apple",
-            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().alwaysEdible().nutrition(2).saturationModifier(4).build())));
+            () -> new Item(new Item.Properties().food(ModFoodProperties.NOVA_APPLE)));
 
 
     public static  final DeferredItem<Item> CHISEL = ITEMS.register("chisel",

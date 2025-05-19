@@ -12,7 +12,7 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.neoforged.fml.common.Mod;
+import org.antlr.v4.runtime.atn.SemanticContext;
 
 
 import java.util.Map;
@@ -26,22 +26,22 @@ public class TransmuteItem extends Item {
     private static final Map<Block, Block> TRANSMUTE_MAP =
             Map.of(
                     Blocks.STONE, Blocks.STONE_BRICKS,
+                    Blocks.STONE_BRICKS, Blocks.ANDESITE,
+                    Blocks.ANDESITE, Blocks.DIORITE,
+                    Blocks.DIORITE, Blocks.GRANITE,
                     Blocks.SANDSTONE, Blocks.SMOOTH_SANDSTONE,
                     Blocks.AIR, Blocks.ACACIA_LOG
             );
 
-    private static final Map<Block, Block> ASCENDANT_MAP =
-            Map.of(
-                    ModBlocks.SUPERNOVA_CATALYST.get(), ModBlocks.SUPERNOVA_BLOCK.get(),
-                    ModBlocks.SUPERNOVA_SOURCE.get(), Blocks.STONE
-            );
 
     private static final Map<Block, Block> STARSEER_MAP =
             Map.of(
-                    Blocks.STONE, ModBlocks.SUPERNOVA_SOURCE.get(),
-                    Blocks.ANDESITE, ModBlocks.SUPERNOVA_SOURCE.get(),
-                    Blocks.DIORITE, ModBlocks.SUPERNOVA_SOURCE.get(),
-                    Blocks.GRANITE, ModBlocks.SUPERNOVA_SOURCE.get()
+                    Blocks.STONE, ModBlocks.STARSEER_ESSENCE.get(),
+                    Blocks.ANDESITE, ModBlocks.STARSEER_ESSENCE.get(),
+                    Blocks.DIORITE, ModBlocks.STARSEER_ESSENCE.get(),
+                    Blocks.GRANITE, ModBlocks.STARSEER_ESSENCE.get(),
+                    ModBlocks.SUPERNOVA_CATALYST.get(), ModBlocks.SUPERNOVA_BLOCK.get(),
+                    ModBlocks.STARSEER_ESSENCE.get(), Blocks.STONE
             );
     @Override
     public InteractionResult useOn(UseOnContext context) {
@@ -49,7 +49,7 @@ public class TransmuteItem extends Item {
         Block clickedBlock = level.getBlockState(context.getClickedPos()).getBlock();
         Block belowBlock = level.getBlockState(context.getClickedPos().below()).getBlock();
         Block aboveBlock = level.getBlockState(context.getClickedPos().above()).getBlock();
-        if(TRANSMUTE_MAP.containsKey(clickedBlock) & context.getItemInHand().is(ModItems.CHISEL.asItem())) {
+        if(TRANSMUTE_MAP.containsKey(clickedBlock) & !context.getItemInHand().is(ModItems.STARSEER_EYE.asItem())) {
             if (!level.isClientSide()) {
                 level.setBlockAndUpdate(context.getClickedPos(), TRANSMUTE_MAP.get(clickedBlock).defaultBlockState());
 
@@ -59,30 +59,31 @@ public class TransmuteItem extends Item {
         }
 
 
-        if(ASCENDANT_MAP.containsKey(clickedBlock)) {
-            if(!level.isClientSide()) {
-                if(belowBlock == ModBlocks.SUPERNOVA_SOURCE.get() & aboveBlock == ModBlocks.SUPERNOVA_SOURCE.get()) {
-                    if(clickedBlock == ModBlocks.SUPERNOVA_CATALYST.get() & context.getItemInHand().is(ModItems.STARSEER_EYE.asItem())) {
-                        level.setBlockAndUpdate(context.getClickedPos(), ASCENDANT_MAP.get(clickedBlock).defaultBlockState());
-                        level.setBlockAndUpdate(context.getClickedPos().below(), ASCENDANT_MAP.get(belowBlock).defaultBlockState());
-                        level.setBlockAndUpdate(context.getClickedPos().above(), ASCENDANT_MAP.get(aboveBlock).defaultBlockState());
+        if(STARSEER_MAP.containsKey(clickedBlock) && !level.isClientSide()) {
+            if(context.getItemInHand().is(ModItems.STARSEER_EYE.asItem())) {
+                if(clickedBlock == ModBlocks.SUPERNOVA_CATALYST.get()) {
+                    if(belowBlock == ModBlocks.STARSEER_ESSENCE.get() & aboveBlock == ModBlocks.STARSEER_ESSENCE.get()) {
+                        level.setBlockAndUpdate(context.getClickedPos(), STARSEER_MAP.get(clickedBlock).defaultBlockState());
+                        level.setBlockAndUpdate(context.getClickedPos().below(), STARSEER_MAP.get(belowBlock).defaultBlockState());
+                        level.setBlockAndUpdate(context.getClickedPos().above(), STARSEER_MAP.get(aboveBlock).defaultBlockState());
                         level.playSound(null, context.getClickedPos(), SoundEvents.GRINDSTONE_USE, SoundSource.BLOCKS);
-                        context.getItemInHand().hurtAndBreak(16, ((ServerLevel) level), context.getPlayer(),
+                        context.getItemInHand().hurtAndBreak(1, ((ServerLevel) level), context.getPlayer(),
                                 item -> context.getPlayer().onEquippedItemBroken(item, EquipmentSlot.MAINHAND));
-
                     }
-                    if(clickedBlock == ModBlocks.SUPERNOVA_BLOCK.get()) {
-                        level.setBlockAndUpdate(context.getClickedPos(), Blocks.OBSIDIAN.defaultBlockState());
+                    else{
+                        level.playSound(null, context.getClickedPos(), SoundEvents.PLAYER_HURT, SoundSource.BLOCKS);
                     }
+                } else if (clickedBlock == ModBlocks.SUPERNOVA_BLOCK.get()) {
+                    level.setBlockAndUpdate(context.getClickedPos(), Blocks.OBSIDIAN.defaultBlockState());
+                } else if (clickedBlock == ModBlocks.STARSEER_ESSENCE.get()) {
+                    level.setBlockAndUpdate(context.getClickedPos(), STARSEER_MAP.get(clickedBlock).defaultBlockState());
+                    context.getItemInHand().hurtAndBreak(-1, ((ServerLevel) level), context.getPlayer(),
+                            item -> context.getPlayer().onEquippedItemBroken(item, EquipmentSlot.MAINHAND));
+                } else {
+                    level.setBlockAndUpdate(context.getClickedPos(), STARSEER_MAP.get(clickedBlock).defaultBlockState());
                 }
             }
         }
-
-        if(!level.isClientSide() & context.getItemInHand().is(ModItems.STARSEER_EYE.asItem())) {
-            level.setBlockAndUpdate(context.getClickedPos(), STARSEER_MAP.get(clickedBlock).defaultBlockState());
-        }
-
-
         return InteractionResult.SUCCESS;
     }
 }

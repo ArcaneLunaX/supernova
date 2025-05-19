@@ -2,7 +2,7 @@
   "replace": false,
   "values": [
     "supernova:supernova_block",
-    "supernova:supernova_source",
+    "supernova:starseer_essence",
     "supernova:supernova_catalyst"
   ]
 }

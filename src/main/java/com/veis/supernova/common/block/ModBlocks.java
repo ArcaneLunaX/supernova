@@ -2,6 +2,7 @@ package com.veis.supernova.common.block;
 
 
 import com.veis.supernova.common.Supernova;
+import com.veis.supernova.common.block.custom.AltarBlock;
 import com.veis.supernova.common.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -32,7 +33,7 @@ public class ModBlocks {
             () -> new DropExperienceBlock(UniformInt.of(2, 4),
             BlockBehaviour.Properties.of().strength(3f).requiresCorrectToolForDrops().sound(SoundType.ANCIENT_DEBRIS)));
 
-    public static final DeferredBlock<Block> SUPERNOVA_SOURCE = registerBlock("supernova_source",
+    public static final DeferredBlock<Block> STARSEER_ESSENCE = registerBlock("starseer_essence",
             () -> new Block(BlockBehaviour.Properties.of().strength(1f).lightLevel(state -> 15).sound(SoundType.GLASS)));
 
 

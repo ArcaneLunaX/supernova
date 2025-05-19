@@ -24,6 +24,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.NOVA_INGOT);
                         output.accept(ModItems.CHISEL);
                         output.accept(ModItems.STARSEER_EYE);
+                        output.accept(ModItems.NOVA_APPLE);
                     }).build());
     public static final Supplier<CreativeModeTab> SUPERNOVA_BLOCKS_TAB = CREATIVE_MODE_TAB.register("supernova_blocks_tab",
             () -> CreativeModeTab.builder()
@@ -32,7 +33,7 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.supernova.supernova_blocks"))
                     .displayItems((parameters, output) -> {
                         output.accept(ModBlocks.SUPERNOVA_CATALYST);
-                        output.accept(ModBlocks.SUPERNOVA_SOURCE);
+                        output.accept(ModBlocks.STARSEER_ESSENCE);
                         output.accept(ModBlocks.SUPERNOVA_BLOCK);
                     }).build());
 
